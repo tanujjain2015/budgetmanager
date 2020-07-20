@@ -1,0 +1,19 @@
+{
+    "name": "Budget Manager",
+    "short_name": "BudgetManager",
+    "description": "An app that allows you to track your budget.",
+    "background_color": "#01579b",
+    "theme_color": "#ffffff",
+    "icons": [
+        {
+          "src": "./public/icons/icon-192x192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "./public/icons/icon-512x512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ]
+}
