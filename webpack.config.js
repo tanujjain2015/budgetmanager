@@ -4,17 +4,22 @@ const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPl
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 
 module.exports = {
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    port: 8080
+  },
     entry: {
         app: "./public/js/index.js"
   },
   output: {
     filename: "[name].bundle.js",
-    path: __dirname + "/dist"
+    path: __dirname + "/public"
   },
   module: {
     rules: [
       {
-        test: /\.jpg$/i,
+        test: /\.png$/i,
         use: [
             {
               loader: "file-loader",
@@ -24,7 +29,7 @@ module.exports = {
                   return "[path][name].[ext]"
                 },
                 publicPath: function(url) {
-                    return url.replace("../", "/assets/")
+                    return url.replace("../", "/public/")
                 }
               }  
             },
@@ -54,7 +59,7 @@ module.exports = {
         icons: [{
           src: path.resolve("public/icons/icon-512x512.png"),
           sizes: [96, 128, 192, 256, 384, 512],
-          destination: path.join("assets", "icons")
+          destination: path.join("public", "icons")
         }]
       })
   ],
